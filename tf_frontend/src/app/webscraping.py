@@ -66,7 +66,6 @@ def get_company_profile(soup):
         return perfil_text
     
     except requests.exceptions.RequestException as e:
-        print(f"Error al realizar la solicitud: {e}")
         return None
 
 def extract_job_criteria(soup):

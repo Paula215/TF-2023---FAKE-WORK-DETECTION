@@ -21,7 +21,6 @@ function showResult(prediction) {
         image.src = "{{ url_for('static', filename='imgs/thumb_up.webp') }}";
         text.textContent = "La oferta de trabajo ingresada es verdadera!";
     }
-
     content.style.display = "flex";
 }
 
