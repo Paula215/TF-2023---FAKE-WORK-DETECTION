@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True or Fake Job</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <main class="container">
+        <section class="wrapper">
+            <div class="inner-wrapper">
+                <div class="text-column">
+                    <div class="info-box">
+                        <h1 class="title">TRUE OR FAKE JOB</h1>
+                        <p class="description">
+                            ¡Hola! ¿Estás buscando trabajo en EE.UU. o Reino Unido? <br />
+                            <strong>¡NO TE CONFÍES!</strong> No seas víctima de una oferta laboral falsa. <br />
+                            Mejor verifica si tu oferta de trabajo es real. Solo ingresa el enlace de la oferta laboral (LinkedIn) y verifícalo. Nuestro modelo tiene un 98.76% de precisión.
+                        </p>
+                    </div>
+                </div>
+                <div class="image-column">
+                    <div class="image-container">
+                        <img loading="lazy" src="static/imgs/usa_flag.webp" class="image" alt="Job Verification"/>
+                        <img loading="lazy" src="static/imgs/uk_flag.webp" class="image-second" alt="Secure Job Offer"/>
+                    </div>
+                </div>
+            </div>
+            <form class="form-container" action="/process-link" method="POST">
+                <label for="jobLinkInput">Ingrese el link del trabajo</label>
+                <div class="form-actions">
+                    <input type="url" id="jobLinkInput" name="jobLinkInput" class="input-label" placeholder="Puedes poner el link que quieras" aria-label="Job link input" required />
+                    <button type="submit" class="submit-button">OK</button>
+                </div>
+            </form>
+            <div id="result" style="display: none;">
+                <p id="textResult" class="result-text"></p>
+                <img id="imageResult" class="result-image" src="" />
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,225 @@
+/* Asegura que el color de fondo ocupe toda la página */
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+}
+
+/* Estilo para el contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 49px 60px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 1000px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Estilo para el wrapper */
+.wrapper {
+  border-radius: 10px;
+  background-color: rgba(237, 182, 182, 0.38);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 24px 10px 80px 39px;
+}
+
+@media (max-width: 991px) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px; /* Añadido para igualar el padding en ambos lados */
+  }
+}
+
+/* Estilo para el inner-wrapper */
+.inner-wrapper {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .inner-wrapper {
+    flex-direction: column;
+    align-items: center; /* Cambiado para centrar elementos en pantallas pequeñas */
+    gap: 0px;
+  }
+}
+
+/* Estilo para la columna de texto */
+.text-column {
+  display: flex;
+  flex-direction: column;
+  width: 69%;
+}
+
+@media (max-width: 991px) {
+  .text-column {
+    width: 100%;
+  }
+}
+
+/* Estilo para la caja de información */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  color: #000;
+}
+
+@media (max-width: 991px) {
+  .info-box {
+    margin-top: 18px;
+    align-items: center; /* Añadido para centrar el texto en pantallas pequeñas */
+  }
+}
+
+/* Estilo para el título */
+.title {
+  font: 700 20px/160% Inter, sans-serif;
+}
+
+@media (max-width: 991px) {
+  .title {
+    margin-right: 0px; /* Cambiado para evitar margen extra en pantallas pequeñas */
+    text-align: center; /* Añadido para centrar el título en pantallas pequeñas */
+  }
+}
+
+/* Estilo para la descripción */
+.description {
+  font: 400 11px/16px Inter, sans-serif;
+  margin-top: 43px;
+}
+
+@media (max-width: 991px) {
+  .description {
+    margin-top: 40px;
+    text-align: center; /* Añadido para centrar la descripción en pantallas pequeñas */
+  }
+}
+
+/* Estilo para la columna de imagen */
+.image-column {
+  display: flex;
+  flex-direction: column;
+  width: 31%;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .image-column {
+    width: 100%;
+    margin-left: 0px; /* Removido el margen izquierdo para pantallas pequeñas */
+    align-items: center; /* Añadido para centrar imágenes en pantallas pequeñas */
+  }
+}
+
+/* Estilo para el contenedor de imágenes */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 37px;
+  align-items: center; /* Añadido para centrar las imágenes */
+}
+
+@media (max-width: 991px) {
+  .image-container {
+    margin-top: 40px;
+  }
+}
+
+/* Estilo para las imágenes */
+.image {
+  width: 100px;
+}
+
+.image-second {
+  margin-top: 20px;
+  width: 100px;
+}
+
+.result
+{
+  display: none;
+}
+
+.result-text{
+  font-weight: bold;
+  font-family: Inter, sans-serif;
+}
+
+.result-image{
+  width: 250px;
+  flex-direction: column;
+  margin-left: 0px; 
+  margin-left: 20px;
+}
+
+/* Estilo para el contenedor de formularios */
+.form-container {
+  margin-top: 18px;
+  font: 700 11px/145% Inter, sans-serif;
+  width: 100%; /* Añadido para asegurar que el formulario tome todo el ancho disponible */
+}
+
+/* Estilo para las acciones del formulario */
+.form-actions {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 133%;
+  margin: 6px 0 52px 0;
+  justify-content: center; /* Añadido para centrar los elementos del formulario */
+}
+
+@media (max-width: 991px) {
+  .form-actions {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    justify-content: center; /* Añadido para asegurar que los elementos del formulario estén centrados en pantallas pequeñas */
+  }
+}
+
+/* Estilo para el input del formulario */
+.input-label {
+  font-family: Inter, sans-serif;
+  border-radius: 1000px;
+  background-color: #000;
+  color: #e5e5e5;
+  padding: 14px 13px;
+  flex-grow: 1;
+  width: fit-content;
+}
+
+/* Estilo para el botón de submit */
+.submit-button {
+  font-family: Inter, sans-serif;
+  border-radius: 1000px;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 22px;
+  white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  .submit-button {
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
