@@ -6,7 +6,7 @@ var modelo = null;
     const modelFile = await response.arrayBuffer();
     const model = await joblib.load(new Uint8Array(modelFile));
     modelo = model; // Asignar el modelo cargado a la variable global
-})();
+})(); 
 
 // Funcion donde se realiza la prediccion
 function showResult(prediction) {
