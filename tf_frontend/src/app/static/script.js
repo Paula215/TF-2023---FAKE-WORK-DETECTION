@@ -15,10 +15,10 @@ function showResult(prediction) {
     var text = document.getElementById("textResult");
 
     if (prediction == 0) {
-        image.src = "{{ url_for('static', filename='imgs/thumb_down.webp') }}";
+        image.src = "../static/imgs/thumb_down.webp";
         text.textContent = "¡CUIDADO! La oferta de trabajo ingresada es FALSA!";
     } else {
-        image.src = "{{ url_for('static', filename='imgs/thumb_up.webp') }}";
+        image.src = "../static/imgs/thumb_up.webp";
         text.textContent = "La oferta de trabajo ingresada es verdadera!";
     }
     content.style.display = "flex";

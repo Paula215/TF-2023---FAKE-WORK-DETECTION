@@ -1,4 +1,5 @@
 import requests
+from models import modelo
 from bs4 import BeautifulSoup
 
 def perform_web_scraping(url):
@@ -13,15 +14,25 @@ def perform_web_scraping(url):
             soup = BeautifulSoup(page_content, 'html.parser')
 
             # Obtener título
-            title = soup.find(class_="top-card-layout__title font-sans text-lg papabear:text-xl font-bold leading-open text-color-text mb-0 topcard__title").get_text(strip=True)
+            title = soup.find(class_="top-card-layout__title font-sans text-lg papabear:text-xl font-bold leading-open text-color-text mb-0 topcard__title")
+            title = title.get_text(strip=True) if title else 'N/A'
+            
             # Obtener ubicación
-            location = soup.find(class_="topcard__flavor topcard__flavor--bullet").get_text(strip=True)
+            location = soup.find(class_="topcard__flavor topcard__flavor--bullet")
+            location = location.get_text(strip=True) if location else 'N/A'
+            
             # Obtener descripción
-            description = soup.find(class_="show-more-less-html__markup show-more-less-html__markup--clamp-after-5 relative overflow-hidden").get_text(strip=True)
+            description = soup.find(class_="show-more-less-html__markup show-more-less-html__markup--clamp-after-5 relative overflow-hidden")
+            description = description.get_text(strip=True) if description else 'N/A'
+            
             # Obtener perfil de la compañía
-            company_profile = get_company_profile(soup)
+            company_profile = get_company_profile(soup) if get_company_profile(soup) else 'N/A'
+            
             # Obtener criterios del trabajo
             required_experience, employment_type, job_function = extract_job_criteria(soup)
+            required_experience = required_experience if required_experience else 'N/A'
+            employment_type = employment_type if employment_type else 'N/A'
+            job_function = job_function if job_function else 'N/A'
 
             return {
                 'title': title,
@@ -37,6 +48,28 @@ def perform_web_scraping(url):
     except Exception as e:
         return {'error': str(e)}
 
+def process_link(url):
+    data = perform_web_scraping(url)
+    
+    if 'error' in data:
+        print(f"Error al procesar el link: {data['error']}")
+        return
+
+    try:
+        prueba = modelo.predict_new_entry(
+            data.get('title', 'N/A'),
+            data.get('location', 'N/A'),
+            data.get('company_profile', 'N/A'),
+            data.get('description', 'N/A'),
+            data.get('employment_type', 'N/A'),
+            data.get('required_experience', 'N/A'),
+            data.get('job_function', 'N/A')
+        )
+        return prueba
+    except KeyError as e:
+        print(f"Error: Clave faltante {str(e)} en los datos")
+    except Exception as e:
+        print(f"Error: {str(e)}")
 def get_company_profile(soup):
 
     enlace= soup.find('div',class_="top-card-layout__card relative p-2 papabear:p-details-container-padding").a
